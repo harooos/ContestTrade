@@ -20,7 +20,7 @@ from data_source.data_source_base import DataSourceBase
 from loguru import logger
 
 
-class SinaMultiPageCrawler(DataSourceBase):
+class SinaNewsCrawl(DataSourceBase):
     def __init__(self, start_page=1, end_page=50):
         super().__init__("sina_news_crawl")
         self.start_page = start_page
@@ -357,7 +357,7 @@ class SinaMultiPageCrawler(DataSourceBase):
         return df
 
 if __name__ == "__main__":
-    crawler = SinaMultiPageCrawler(start_page=1, end_page=50)
+    crawler = SinaNewsCrawl(start_page=1, end_page=50)
     df = asyncio.run(crawler.get_data("2025-08-21 09:00:00"))
     print(len(df))
     # try:
